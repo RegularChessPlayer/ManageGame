@@ -43,7 +43,6 @@ namespace ManageGameApi.Controllers
                 token = token
             };
 
-
         }
 
     }

@@ -1,5 +1,7 @@
+using AutoMapper;
 using ManageGameApi.Domain.Entities;
 using ManageGameApi.Infrastructure;
+using ManageGameApi.Infrastructure.Interface;
 using ManageGameApi.Repositories;
 using ManageGameApi.Repositories.Interfaces;
 using ManageGameApi.Services;
@@ -38,11 +40,17 @@ namespace ManageGameApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(p => p.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddScoped<IUserManageRepository, UserManageRepository>();
+            services.AddScoped<IFriendRepository, FriendRepository>();
 
-            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IFriendService, FriendService>();
+
             services.AddScoped<IUserIdentity, IdentityUser>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             services.AddScoped<ITokenService>(x => new AuthService(Configuration.GetSection("JWT:Key").Value));
             var key = Encoding.ASCII.GetBytes(Configuration.GetSection("JWT:Key").Value);
             services.AddAuthentication(x =>
@@ -62,7 +70,6 @@ namespace ManageGameApi
                     ValidateAudience = false
                 };
             });
-
 
             services.AddControllers();
         }
