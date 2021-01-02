@@ -5,7 +5,7 @@ namespace ManageGameApi.Domain.Output
     public class FriendResponse : BaseResponse
     {
         public Friend Friend { get; private set; }
-
+        
         public FriendResponse(bool success, string message, Friend friend) : base(success, message)
         {
             Friend = friend;

@@ -2,10 +2,11 @@
 
 namespace ManageGameApi.Domain.Input
 {
-    public class FriendInput
+    public class GameInput
     {
         [Required]
         [MaxLength(100)]
         public string Name { get; set; }
+
     }
 }

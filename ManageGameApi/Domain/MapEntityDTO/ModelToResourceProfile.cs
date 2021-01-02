@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ManageGameApi.Domain.DTO;
 using ManageGameApi.Domain.Entities;
+using ManageGameApi.Domain.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,9 @@ namespace ManageGameApi.Domain.MapEntityDTO
         public ModelToResourceProfile()
         {
             CreateMap<Friend, FriendDTO>();
+            CreateMap<Game, GameDTO>();
+            CreateMap<FriendInput, Friend>();
+            CreateMap<GameInput, Game>();
         }
 
     }

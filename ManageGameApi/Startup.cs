@@ -45,8 +45,10 @@ namespace ManageGameApi
 
             services.AddScoped<IUserManageRepository, UserManageRepository>();
             services.AddScoped<IFriendRepository, FriendRepository>();
+            services.AddScoped<IGameRepository, GameRepository>();
 
             services.AddScoped<IFriendService, FriendService>();
+            services.AddScoped<IGameService, GameService>();
 
             services.AddScoped<IUserIdentity, IdentityUser>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();

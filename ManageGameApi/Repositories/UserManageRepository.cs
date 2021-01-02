@@ -18,6 +18,7 @@ namespace ManageGameApi.Repositories
 
         public UserManage Get(string username, string password)
         {
+            
             return _context.UserManage
                 .Where(x => x.Email.ToLower() == username.ToLower()
                 && x.Password == x.Password)
