@@ -29,9 +29,28 @@ namespace ManageGameApi.Repositories
                             _context.Game,
                             lgFriend => lgFriend.locateGame.GameId,
                             game => game.Id,
-                            (lgFriend, game) =>  new FriendGame { Friend = lgFriend.friend, Game = game }
+                            (lgFriend, game) => new FriendGame { Friend = lgFriend.friend, Game = game }
                         ).ToListAsync();
         }
 
+        public async Task AddAsync(LocateGame locateGame)
+        {
+            await _context.LocateGame.AddAsync(locateGame);
+        }
+
+        public async Task<LocateGame> FindByIdAsync(long GameId, long FriendId)
+        {
+            return await _context.LocateGame.FindAsync(GameId, FriendId);
+        }
+
+        public void Remove(LocateGame locateGame)
+        {
+            _context.LocateGame.Remove(locateGame);
+        }
+
+        public void Update(LocateGame locateGame)
+        {
+            _context.LocateGame.Update(locateGame);
+        }
     }
 }

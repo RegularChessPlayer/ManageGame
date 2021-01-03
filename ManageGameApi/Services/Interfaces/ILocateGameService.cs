@@ -1,5 +1,7 @@
 ﻿using ManageGameApi.Domain.DTO;
 using ManageGameApi.Domain.Entities;
+using ManageGameApi.Domain.Input;
+using ManageGameApi.Domain.Output;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,9 @@ namespace ManageGameApi.Services.Interfaces
     public interface ILocateGameService
     {
         Task<IEnumerable<FriendLocateGameDTO>> ListAsync();
+        Task<LocateGameResponse> SaveLocateGameAsync(LocateGameInput locateGameInput);
+        Task<LocateGameResponse> UpdateLocateGameAsync(long gameId, long friendId, LocateGameInput locateGameInput);
+        Task<LocateGameResponse> DeleteLocateGameAsync(long gameId, long friendId);
 
     }
 }

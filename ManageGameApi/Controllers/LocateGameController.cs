@@ -1,5 +1,7 @@
 ﻿using ManageGameApi.Domain.DTO;
 using ManageGameApi.Domain.Entities;
+using ManageGameApi.Domain.Input;
+using ManageGameApi.Extensions;
 using ManageGameApi.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +28,50 @@ namespace ManageGameApi.Controllers
         {
             var locateGames = await _locateGameService.ListAsync();
             return Ok(locateGames);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> PostCreateGameAsync([FromBody] LocateGameInput locateGameInput)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var result = await _locateGameService.SaveLocateGameAsync(locateGameInput);
+
+            if (!result.Success)
+                return BadRequest(result.Message);
+
+            return Ok(result.LocateGame);
+
+        }
+
+        [HttpPut("{gameId}/{friendId}")]
+        public async Task<IActionResult> PutAsync(long gameId, 
+            long friendId, [FromBody] LocateGameInput locateGameInput)
+        {
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var result = await _locateGameService.UpdateLocateGameAsync(gameId, friendId, locateGameInput);
+
+            if (!result.Success)
+                return BadRequest(result.Message);
+
+            return Ok(result.LocateGame);
+
+        }
+
+        [HttpDelete("{gameId}/{friendId}")]
+        public async Task<IActionResult> DeleteAsync(long gameId, long friendId)
+        {
+            var result = await _locateGameService.DeleteLocateGameAsync(gameId, friendId);
+
+            if (!result.Success)
+                return BadRequest(result.Message);
+
+            return Ok(result.LocateGame);
         }
 
 

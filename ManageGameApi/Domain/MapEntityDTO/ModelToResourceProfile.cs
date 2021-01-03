@@ -19,6 +19,7 @@ namespace ManageGameApi.Domain.MapEntityDTO
 
             CreateMap<FriendInput, Friend>();
             CreateMap<GameInput, Game>();
+            CreateMap<LocateGameInput, LocateGame>();
         }
 
     }

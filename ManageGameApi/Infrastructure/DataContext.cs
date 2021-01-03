@@ -39,7 +39,6 @@ namespace ManageGameApi.Infrastructure
             );
 
            
-
             modelBuilder.Entity<Friend>().HasData
             (
                 new Friend { Id = 90, Name = "Jhon Dean", UserManageId = 100 },
