@@ -61,7 +61,7 @@ namespace ManageGameApi.Services
             if (existingGame == null)
                 return new GameResponse("Game not found");
 
-            existingGame.Name = existingGame.Name;
+            existingGame.Name = gameInput.Name;
 
             try
             {

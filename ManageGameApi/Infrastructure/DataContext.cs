@@ -49,12 +49,13 @@ namespace ManageGameApi.Infrastructure
             modelBuilder.Entity<Game>().HasData
             (
                 new Game { Id = 100, Name = "God of War", UserManageId = 100 },
-                new Game { Id = 101, Name = "Derick Jhonson", UserManageId = 100 }
+                new Game { Id = 101, Name = "Mega Man x", UserManageId = 100 }
             );
 
             modelBuilder.Entity<LocateGame>().HasData
             (
-                 new LocateGame { FriendId = 90, GameId = 100, UserManageId = 100 }
+                 new LocateGame { FriendId = 90, GameId = 100, UserManageId = 100 },
+                 new LocateGame { FriendId = 90, GameId = 101, UserManageId = 100 }
             );
 
             modelBuilder.LowercaseRelationalTableAndPropertyNames();

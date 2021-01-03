@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ManageGameApi.Domain.Entities
 {
-    public class Friend
+    public class Friend 
     {
         public long Id { get; set; }
         public string Name { get; set; }
