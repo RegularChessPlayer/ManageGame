@@ -8,7 +8,7 @@ namespace ManageGameApi.Domain.Output
 
         public LocateGameResponse(bool success, string message, LocateGame locateGame) : base(success, message)
         {
-
+            LocateGame = locateGame;
         }
 
         /// <summary>

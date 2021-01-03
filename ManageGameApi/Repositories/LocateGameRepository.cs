@@ -48,9 +48,6 @@ namespace ManageGameApi.Repositories
             _context.LocateGame.Remove(locateGame);
         }
 
-        public void Update(LocateGame locateGame)
-        {
-            _context.LocateGame.Update(locateGame);
-        }
+       
     }
 }

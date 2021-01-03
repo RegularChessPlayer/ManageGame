@@ -46,23 +46,6 @@ namespace ManageGameApi.Controllers
 
         }
 
-        [HttpPut("{gameId}/{friendId}")]
-        public async Task<IActionResult> PutAsync(long gameId, 
-            long friendId, [FromBody] LocateGameInput locateGameInput)
-        {
-
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState.GetErrorMessages());
-
-            var result = await _locateGameService.UpdateLocateGameAsync(gameId, friendId, locateGameInput);
-
-            if (!result.Success)
-                return BadRequest(result.Message);
-
-            return Ok(result.LocateGame);
-
-        }
-
         [HttpDelete("{gameId}/{friendId}")]
         public async Task<IActionResult> DeleteAsync(long gameId, long friendId)
         {

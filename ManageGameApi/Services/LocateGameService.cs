@@ -67,32 +67,6 @@ namespace ManageGameApi.Services
             }
         }
 
-        public async Task<LocateGameResponse> UpdateLocateGameAsync(long gameId, long friendId, LocateGameInput locateGameInput)
-        {
-
-            var existingLocateGame = await _locateGameRepository
-                .FindByIdAsync(gameId, friendId);
-
-            if (existingLocateGame == null)
-                return new LocateGameResponse("Locate Game not found");
-
-            existingLocateGame.GameId = locateGameInput.GameId;
-            existingLocateGame.FriendId = locateGameInput.FriendId;
-
-            try
-            {
-                _locateGameRepository.Update(existingLocateGame);
-                await _unitOfWork.CompleteAsync();
-
-                return new LocateGameResponse(existingLocateGame);
-            }
-            catch (Exception ex)
-            {
-                return new LocateGameResponse($"An error occurred when updating the game: {ex.Message}");
-            }
-
-        }
-
         public async Task<LocateGameResponse> DeleteLocateGameAsync(long gameId, long friendId)
         {
             var existingLocateGame = await _locateGameRepository.FindByIdAsync(gameId, friendId);

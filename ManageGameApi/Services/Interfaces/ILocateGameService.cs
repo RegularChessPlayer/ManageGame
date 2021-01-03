@@ -13,7 +13,6 @@ namespace ManageGameApi.Services.Interfaces
     {
         Task<IEnumerable<FriendLocateGameDTO>> ListAsync();
         Task<LocateGameResponse> SaveLocateGameAsync(LocateGameInput locateGameInput);
-        Task<LocateGameResponse> UpdateLocateGameAsync(long gameId, long friendId, LocateGameInput locateGameInput);
         Task<LocateGameResponse> DeleteLocateGameAsync(long gameId, long friendId);
 
     }
