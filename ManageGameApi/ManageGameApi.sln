@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageGameApi", "ManageGameApi.csproj", "{F7EAAEAB-BB27-429B-856C-A82C4E8EA43E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManageGameApi", "ManageGameApi.csproj", "{F7EAAEAB-BB27-429B-856C-A82C4E8EA43E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageGameApiTest", "..\ManageGameApiTest\ManageGameApiTest.csproj", "{192B6EB3-0E8C-4722-8ADA-8DFA0D250DB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F7EAAEAB-BB27-429B-856C-A82C4E8EA43E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7EAAEAB-BB27-429B-856C-A82C4E8EA43E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7EAAEAB-BB27-429B-856C-A82C4E8EA43E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{192B6EB3-0E8C-4722-8ADA-8DFA0D250DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{192B6EB3-0E8C-4722-8ADA-8DFA0D250DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{192B6EB3-0E8C-4722-8ADA-8DFA0D250DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{192B6EB3-0E8C-4722-8ADA-8DFA0D250DB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
