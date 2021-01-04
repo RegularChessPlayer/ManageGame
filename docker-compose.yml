@@ -1,0 +1,33 @@
+version: '3.4'
+
+networks:
+  managegameapi-dev:
+    driver: bridge 
+
+services:
+  managegameapi:
+    build: .
+    depends_on:
+      - "postgres_image"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"     
+    networks:
+      - managegameapi-dev  
+  
+  postgres_image:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+      - ./dbscripts/seed.sql :/docker-entrypoint-initdb.d/seed.sql
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_DB: "managegame"
+    networks:
+      - managegameapi-dev
+volumes:
+  db_volume:
